@@ -20,7 +20,7 @@ TOOL_VERSION="1.5.0"
 # -------------------------------------
 # Check for SetAutoSignIn and function to SetAutoSignIn commnented out due to setting value to "true" with configuration profile.
 # Greg K
-# Rev 1.0
+# Rev 1.0.1
 # 6.21.22
 # -------------------------------------
 #
@@ -197,18 +197,18 @@ SetPrefillOffice() {
 
 # Set Office Automatic Office Sign In
 # SetAutoSignIn() {
-	KEYMANAGED=$(IsPrefManaged "OfficeAutoSignIn" "com.microsoft.office")
-	if [ "$KEYMANAGED" = "1" ]; then
-		echo ">>WARNING - Cannot override managed preference 'OfficeAutoSignIn'"
-	else
-		if ${CMD_PREFIX} /usr/bin/defaults write com.microsoft.office OfficeAutoSignIn -bool true; then
-			echo ">>SUCCESS - Set 'OfficeAutoSignIn' to TRUE"
-		else
-			echo ">>ERROR - Did not set value for 'OfficeAutoSignIn'"
-			exit 1
-		fi
-	fi
-}
+#	KEYMANAGED=$(IsPrefManaged "OfficeAutoSignIn" "com.microsoft.office")
+#	if [ "$KEYMANAGED" = "1" ]; then
+#		echo ">>WARNING - Cannot override managed preference 'OfficeAutoSignIn'"
+#	else
+#		if ${CMD_PREFIX} /usr/bin/defaults write com.microsoft.office OfficeAutoSignIn -bool true; then
+#			echo ">>SUCCESS - Set 'OfficeAutoSignIn' to TRUE"
+#		else
+#			echo ">>ERROR - Did not set value for 'OfficeAutoSignIn'"
+#			exit 1
+#		fi
+#	fi
+# }
 
 # Set Office Username and Initials
 SetOfficeUser() {
