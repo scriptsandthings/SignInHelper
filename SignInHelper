@@ -16,7 +16,15 @@ TOOL_VERSION="1.5.0"
 
 ## This script is Jamf Pro compatible and can be pasted directly, without modification, into a new script window in the Jamf admin console.
 ## When running under Jamf Pro, no additional parameters need to be specified.
-
+#
+# -------------------------------------
+# Check for SetAutoSignIn and function to SetAutoSignIn commnented out due to setting value to "true" with configuration profile.
+# Greg K
+# Rev 1.0
+# 6.21.22
+# -------------------------------------
+#
+#
 # Shows tool usage and parameters
 ShowUsage() {
 	echo "$TOOL_NAME - $TOOL_VERSION"
@@ -168,7 +176,7 @@ SetPrefill() {
 	SetPrefillOffice "$UPN"
 	SetPrefillSkypeForBusiness "$UPN"
 	### Comment out the next line if you don't want to enable automatic sign in, or you are setting it separately in a Configuration Profile
-	SetAutoSignIn
+	# SetAutoSignIn
 }
 
 # Set Home Realm Discovery for Office apps
@@ -188,7 +196,7 @@ SetPrefillOffice() {
 }
 
 # Set Office Automatic Office Sign In
-SetAutoSignIn() {
+# SetAutoSignIn() {
 	KEYMANAGED=$(IsPrefManaged "OfficeAutoSignIn" "com.microsoft.office")
 	if [ "$KEYMANAGED" = "1" ]; then
 		echo ">>WARNING - Cannot override managed preference 'OfficeAutoSignIn'"
